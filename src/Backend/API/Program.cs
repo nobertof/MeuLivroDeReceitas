@@ -2,6 +2,8 @@ using API.FIlters;
 using API.Middleware;
 using Application;
 using Infrastructure;
+using Infrastructure.Extensions;
+using Infrastructure.Migrations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,5 +29,15 @@ app.UseMiddleware<CultureMiddleware>();
 app.UseHttpsRedirection();
 app.MapControllers();
 
+MigrateDatabase();
+
 app.Run();
 
+void MigrateDatabase()
+{
+    var connectionString = builder.Configuration.ConnectionString();
+
+    var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope();
+
+    DatabaseMigration.Migrate(connectionString, serviceScope.ServiceProvider);
+}
