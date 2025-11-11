@@ -1,5 +1,6 @@
 using System.Reflection;
 using System.Resources;
+using Exceptions.Enums;
 
 namespace Exceptions;
 
@@ -10,8 +11,8 @@ public static class ResourceMessagesException
         Assembly.GetExecutingAssembly()
     );
 
-    public static string Get(string key)
+    public static string Get(ExceptionName key)
     {
-        return _resourceManager.GetString(key) ?? $"[Mensagem não encontrada: {key}]";
+        return _resourceManager.GetString(key.ToString()) ?? $"[Mensagem não encontrada: {key}]";
     }
 }
