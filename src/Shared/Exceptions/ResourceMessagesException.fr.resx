@@ -51,7 +51,7 @@
     <data name="EMAIL_INVALIDO" xml:space="preserve">
         <value>L'adresse électronique n'est pas valide.</value>
     </data>
-    <data name="SENHA_VAZIA" xml:space="preserve">
+    <data name="SENHA_INVALIDA" xml:space="preserve">
         <value>Le mot de passe doit comporter plus de 6 caractères.</value>
     </data>
     <data name="UNKNOWN_ERROR" xml:space="preserve">

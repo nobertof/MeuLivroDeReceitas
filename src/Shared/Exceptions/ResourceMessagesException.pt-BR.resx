@@ -51,7 +51,7 @@
     <data name="EMAIL_INVALIDO" xml:space="preserve">
         <value>O E-mail é inválido.</value>
     </data>
-    <data name="SENHA_VAZIA" xml:space="preserve">
+    <data name="SENHA_INVALIDA" xml:space="preserve">
         <value>A senha deve ter mais de 6 caracteres.</value>
     </data>
     <data name="UNKNOWN_ERROR" xml:space="preserve">

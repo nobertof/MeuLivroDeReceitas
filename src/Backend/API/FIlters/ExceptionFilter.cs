@@ -4,6 +4,7 @@ using System.Net;
 using System.Runtime.CompilerServices;
 using Communication.Responses;
 using Exceptions;
+using Exceptions.Enums;
 using Exceptions.ExceptionsBase;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -33,7 +34,7 @@ namespace API.FIlters
         private void ThrowUnknownException(ExceptionContext context)
         {
             context.HttpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-            context.Result = new ObjectResult(new ResponseErrorJson(ResourceMessagesException.Get("UNKNOWN_ERROR")));
+            context.Result = new ObjectResult(new ResponseErrorJson(ResourceMessagesException.Get(ExceptionName.UNKNOWN_ERROR)));
         }
     }
 

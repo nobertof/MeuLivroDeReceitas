@@ -3,14 +3,13 @@
 using Communication.Requests;
 using Communication.Responses;
 using Exceptions.ExceptionsBase;
-using Domain.Entities;
 using Mapster;
-using System.Reflection.Metadata;
 using Application.Services.Cryptography;
 using Domain.Repositories.Usuario;
 using Domain.Repositories;
 using FluentValidation.Results;
 using Exceptions;
+using Exceptions.Enums;
 
 namespace Application.UseCases.Usuario.Cadastrar
 {
@@ -61,7 +60,7 @@ namespace Application.UseCases.Usuario.Cadastrar
             var emailExiste = await _readOnlyRepository.ExisteUsuarioAtivoComEmail(request.Email);
 
             if (emailExiste)
-                resultado.Errors.Add(new ValidationFailure(string.Empty,ResourceMessagesException.Get("EMAIL_JA_REGISTRADO")));
+                resultado.Errors.Add(new ValidationFailure(string.Empty, ResourceMessagesException.Get(ExceptionName.EMAIL_JA_REGISTRADO)));
 
             if (resultado.IsValid == false)
             {
